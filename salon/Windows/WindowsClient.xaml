@@ -1,0 +1,59 @@
+﻿<Window x:Class="salon.Windows.WindowsClient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:salon.Windows"
+        mc:Ignorable="d"
+        Title="WindowsClient" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,-0.4,0.4" Width="794" >
+            <Button x:Name="BtnAddClient" Content="Add" Click="BtnAddClient_Click_1" Width="150"></Button>
+            <Button x:Name="BtnDelete" Content="Delete" Click="BtnDelete_Click" Width="150"></Button>
+        </StackPanel>
+        <StackPanel x:Name="StackLetters" Orientation="Horizontal" Background="{StaticResource ColorMain}">
+            <TextBlock FontWeight="Bold" Foreground="White" Margin="5" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown">All</TextBlock>
+
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Background="{StaticResource ColorMain}"
+                    Grid.Row="1">
+            <TextBlock> Gender:</TextBlock>
+            <ComboBox Name="CmbGender" DisplayMemberPath="Name" SelectionChanged="CmbGender_SelectionChanged" Width="100"></ComboBox>
+            <TextBlock> PirstName</TextBlock>
+            <TextBox x:Name="TxtFirstName" TextChanged="TxtFirstName_TextChanged"  Width="100"></TextBox>
+        </StackPanel>
+
+        <DataGrid x:Name="DataGridClient" Grid.Row="3" AutoGenerateColumns="False" IsReadOnly="True" ColumnWidth="*">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="FirstName" Binding="{Binding FirstName}"/>
+                <DataGridTextColumn Header="LastName" Binding="{Binding LastName}"/>
+                <DataGridTextColumn Header="Patronymic" Binding="{Binding Patronymic}"/>
+                <DataGridTextColumn Header="Birthday" Binding="{Binding Birthday}"/>
+                <DataGridTextColumn Header="RegistrationDate" Binding="{Binding RegistrationDate}"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+                <DataGridTextColumn Header="Phone" Binding="{Binding Phone}"/>
+                <DataGridTextColumn Header="GenderCode" Binding="{Binding Gender.Name}"/>
+                <DataGridTemplateColumn Header="PhotoPath">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding PhotoPath }"></Image>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn >
+                <DataGridTemplateColumn Header="Edit">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="BtnEdit" Click="BtnEdit_Click">Изменить</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

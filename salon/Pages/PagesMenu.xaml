@@ -1,0 +1,25 @@
+﻿<Window x:Class="salon.Pages.PagesMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:salon.Pages"
+        mc:Ignorable="d"
+        Title="PagesMenu" Height="450" Width="800">
+    <Grid>
+        <UniformGrid Columns="2" Rows="2">
+            <Button x:Name="BtnClient" Click="BtnClient_Click_1"
+                    Style="{StaticResource MenuButton}"
+                    Content ="Client"></Button>
+            <Button x:Name="BtnService" Click="BtnService_Click"
+                    Style="{StaticResource MenuButton}"
+                    Content ="Service"></Button>
+            <Button x:Name="BtnClientService" Click="BtnClientService_Click"
+                    Style="{StaticResource MenuButton}"
+                    Content ="ClientService"></Button>
+            <Button x:Name="BtnGender" Click="BtnGender_Click"
+                    Style="{StaticResource MenuButton}"
+                    Content ="Gender"></Button>
+        </UniformGrid>
+    </Grid>
+</Window>

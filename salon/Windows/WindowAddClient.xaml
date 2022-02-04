@@ -1,0 +1,36 @@
+﻿<Window x:Class="salon.Windows.WindowAddClient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:salon.Windows"
+        mc:Ignorable="d"
+        Title="WindowAddClient" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+        </Grid.RowDefinitions>
+        <UniformGrid  Columns="2">
+            <TextBlock>FirstName</TextBlock>
+            <TextBox x:Name="TxtFirstNAme" Text="{Binding FirstName}"></TextBox>
+            <TextBlock>LastName</TextBlock>
+            <TextBox x:Name="TxtLastName" Text="{Binding LastName}"></TextBox>
+            <TextBlock>Patronymic</TextBlock>
+            <TextBox x:Name="TxtPatronymic" Text="{Binding Patronymic}"></TextBox>
+            <TextBlock>Birthday</TextBlock>
+            <DatePicker SelectedDate="{Binding Birthday, StringFormat={}{0:dd:MMMM:yyyy}}"></DatePicker>
+            <TextBlock>RegistrationDate</TextBlock>
+            <DatePicker SelectedDate="{Binding RegistrationDate, StringFormat={}{0:dd:MMMM:yyyy}}"></DatePicker>
+            <TextBlock>Email</TextBlock>
+            <TextBox x:Name="TxtEmail" Text="{Binding Email}"></TextBox>
+            <TextBlock>Phone</TextBlock>
+            <TextBox x:Name="TxtPhone" Text="{Binding Phone}"></TextBox>
+            <TextBlock>GenderCode</TextBlock>
+            <ComboBox x:Name="CmbGenderCode" DisplayMemberPath="GenderCode" SelectedIndex="{Binding GenderCode}"></ComboBox>
+            <TextBlock>PhotoPath</TextBlock>
+            <Image Source="{Binding PhotoPath}" Name="PhotoPath"></Image>
+        </UniformGrid>
+        <Button x:Name="BtnSaveData" Grid.Row="1" Click="BtnSaveData_Click">Сохранить</Button>
+    </Grid>
+</Window>
